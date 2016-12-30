@@ -20,7 +20,7 @@ export default class Search extends Component {
     };
 
     return (
-      <div>
+      <div class="ui form">
         <AutoSuggest
           suggestions={this.props.tracks}
           getSuggestionValue={this.props.handleSelect}

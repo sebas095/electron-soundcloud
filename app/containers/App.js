@@ -135,29 +135,41 @@ export default class App extends Component {
 
     return (
       <div style={playStyle} class="ui fluid container">
-        <Sound
-          url={this.formatUrl(this.state.track.stream_url)}
-          playStatus={this.state.playStatus}
-          onPlaying={this.handleSongPlaying.bind(this)}
-          playFromPosition={this.state.playFromPosition}
-          onFinishedPlaying={this.handleSongFinished.bind(this)}/>
-        <Search
-          autoCompleteValue={this.state.autoCompleteValue}
-          tracks={this.state.tracks}
-          handleSelect={this.handleSelect.bind(this)}
-          handleChange={this.handleChange.bind(this)}/>
-        <Details
-          title={this.state.track.title}/>
-        <Player
-          togglePlay={this.togglePlay.bind(this)}
-          stop={this.stop.bind(this)}
-          forward={this.forward.bind(this)}
-          backward={this.backward.bind(this)}
-          random={this.randomTrack.bind(this)}
-          playerStatus={this.state.playStatus}/>
-        <Progress
-          elapsed={this.state.elapsed}
-          position={this.state.position}/>
+        <div class="ui one column centered grid">
+          <div class="column">
+            <Sound
+              url={this.formatUrl(this.state.track.stream_url)}
+              playStatus={this.state.playStatus}
+              onPlaying={this.handleSongPlaying.bind(this)}
+              playFromPosition={this.state.playFromPosition}
+              onFinishedPlaying={this.handleSongFinished.bind(this)}/>
+          </div>
+          <div class="column">
+            <Search
+              autoCompleteValue={this.state.autoCompleteValue}
+              tracks={this.state.tracks}
+              handleSelect={this.handleSelect.bind(this)}
+              handleChange={this.handleChange.bind(this)}/>
+          </div>
+          <div class="column">
+            <Details
+              title={this.state.track.title}/>
+          </div>
+          <div class="column">
+            <Player
+              togglePlay={this.togglePlay.bind(this)}
+              stop={this.stop.bind(this)}
+              forward={this.forward.bind(this)}
+              backward={this.backward.bind(this)}
+              random={this.randomTrack.bind(this)}
+              playerStatus={this.state.playStatus}/>
+          </div>
+          <div class="column">
+            <Progress
+              elapsed={this.state.elapsed}
+              position={this.state.position}/>
+          </div>
+        </div>
       </div>
     );
   }
