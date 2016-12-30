@@ -78,10 +78,6 @@ export default class App extends Component {
     );
   }
 
-  formatUrl(url) {
-    return `${url}?client_id=${this.clientId}`;
-  }
-
   randomTrack() {
     let _this = this;
     Axios.get(`https://api.soundcloud.com/users/134064959/favorites?client_id=${this.clientId}`)
@@ -93,6 +89,30 @@ export default class App extends Component {
     .catch((err) => {
       console.log(err);
     });
+  }
+
+  formatUrl(url) {
+    return `${url}?client_id=${this.clientId}`;
+  }
+
+  togglePlay() {
+    if (this.state.playStatus === Sound.status.PLAYING) {
+      this.setState({playStatus: Sound.status.PAUSE});
+    } else {
+      this.setState({playStatus: Sound.status.PLAYING});
+    }
+  }
+
+  stop() {
+    this.setState({playStatus: Sound.status.STOPPED});
+  }
+
+  forward() {
+    this.setState({playFromPosition: this.state.playFromPosition += 10000});
+  }
+
+  backward() {
+    this.setState({playFromPosition: this.state.playFromPosition -= 10000});
   }
 
   render() {
@@ -110,7 +130,13 @@ export default class App extends Component {
           handleSelect={this.handleSelect.bind(this)}
           handleChange={this.handleChange.bind(this)}/>
         <Details />
-        <Player />
+        <Player
+          togglePlay={this.togglePlay.bind(this)}
+          stop={this.stop.bind(this)}
+          forward={this.forward.bind(this)}
+          backward={this.backward.bind(this)}
+          random={this.randomTrack.bind(this)}
+          playerStatus={this.state.playStatus}/>
         <Progress />
       </div>
     );
