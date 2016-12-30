@@ -1,0 +1,46 @@
+{
+  "name": "musica-facilito",
+  "version": "1.0.0",
+  "description": "Demo music player for react course",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js",
+    "dev": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebas095/electron-soundcloud.git"
+  },
+  "author": "sebastian duque restrepo <sebas_tian_95@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebas095/electron-soundcloud/issues"
+  },
+  "homepage": "https://github.com/sebas095/electron-soundcloud#readme",
+  "devDependencies": {
+    "electron-packager": "8.4.0"
+  },
+  "dependencies": {
+    "axios": "0.15.3",
+    "babel-core": "6.21.0",
+    "babel-loader": "6.2.10",
+    "babel-plugin-react-html-attrs": "2.0.0",
+    "babel-plugin-transform-class-properties": "6.19.0",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-react": "6.16.0",
+    "babel-preset-stage-0": "6.16.0",
+    "babelify": "7.3.0",
+    "classnames": "2.2.5",
+    "electron-prebuilt": "1.4.13",
+    "electron-reload": "1.1.0",
+    "jquery": "3.1.1",
+    "react": "15.4.1",
+    "react-autosuggest": "7.0.2",
+    "react-dom": "15.4.1",
+    "react-sound": "0.5.2",
+    "semantic-ui-css": "2.2.4",
+    "soundmanager2": "2.97.20150601-a",
+    "webpack": "1.14.0"
+  }
+}
