@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
-export default class App extends Component {
+export default class Progress extends Component {
   constructor() {
     super();
   }
-  
+
   render() {
     return (
       <div>
-        Hola Mundo
+        <span>Max Time</span>
+        <progress max="1"/>
       </div>
     );
   }

@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
-export default class App extends Component {
+export default class Details extends Component {
   constructor() {
     super();
   }
-  
+
   render() {
     return (
       <div>
-        Hola Mundo
+        <h1>Details</h1>
       </div>
     );
   }

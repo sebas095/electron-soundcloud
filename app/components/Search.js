@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import AutoSuggest from 'react-autosuggest';
 
-export default class App extends Component {
+export default class Search extends Component {
   constructor() {
     super();
   }
-  
+
   render() {
     return (
       <div>
-        Hola Mundo
+        <input type="text"/>
       </div>
     );
   }
