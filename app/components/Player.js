@@ -13,22 +13,32 @@ export default class Player extends Component {
     });
 
     return (
-      <div>
-        <button onClick={this.props.backward}>
-          <i class="fa fa-backward"></i>
-        </button>
-        <button onClick={this.props.togglePlay}>
-          <i class={playerStatus}></i>
-        </button>
-        <button onClick={this.props.stop}>
-          <i class="fa fa-stop"></i>
-        </button>
-        <button onClick={this.props.random}>
-          <i class="fa fa-random"></i>
-        </button>
-        <button onClick={this.props.forward}>
-          <i class="fa fa-forward"></i>
-        </button>
+      <div class="ui five column centered grid">
+        <div class="three wide column">
+          <button class="ui massive button" onClick={this.props.backward}>
+            <i class="fa fa-backward"></i>
+          </button>
+        </div>
+        <div class="three wide column">
+          <button class="ui massive button" onClick={this.props.togglePlay}>
+            <i class={playerStatus}></i>
+          </button>
+        </div>
+        <div class="three wide column">
+          <button class="ui massive button" onClick={this.props.stop}>
+            <i class="fa fa-stop"></i>
+          </button>
+        </div>
+        <div class="three wide column">
+          <button class="ui massive button" onClick={this.props.random}>
+            <i class="fa fa-random"></i>
+          </button>
+        </div>
+        <div class="three wide column">
+          <button class="ui massive button" onClick={this.props.forward}>
+            <i class="fa fa-forward"></i>
+          </button>
+        </div>
       </div>
     );
   }
