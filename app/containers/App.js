@@ -115,9 +115,26 @@ export default class App extends Component {
     this.setState({playFromPosition: this.state.playFromPosition -= 10000});
   }
 
+  parseImage(url) {
+    return url.replace(/large/, 't500x500');
+  }
+
   render() {
+    const playStyle = {
+      width: "100vw",
+      height: "100vh",
+      padding: "20%",
+      paddingTop: "5%",
+      color: "white",
+      backgroundImage: `linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+      ), url(${this.parseImage(this.state.track.artwork_url)})`,
+      backgroundSize: 'cover'
+    };
+
     return (
-      <div>
+      <div style={playStyle} class="ui fluid container">
         <Sound
           url={this.formatUrl(this.state.track.stream_url)}
           playStatus={this.state.playStatus}
