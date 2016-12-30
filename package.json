@@ -5,7 +5,14 @@
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
-    "dev": "webpack -w"
+    "dev": "webpack -w",
+    "production-all": "electron-packager ./ Player --all",
+    "production-windows-32": "electron-packager . Player --platform=win32 --arch=i32",
+    "production-windows-64": "electron-packager . Player --platform=win32 --arch=x64",
+    "production-mac-32": "electron-packager . Player --platform=darwin --arch=i32",
+    "production-mac-64": "electron-packager . Player --platform=darwin --arch=x64",
+    "production-linux-32": "electron-packager . Player --platform=linux --arch=i32",
+    "production-linux-64": "electron-packager . Player --platform=linux --arch=x64"
   },
   "repository": {
     "type": "git",
