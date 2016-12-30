@@ -32,16 +32,6 @@ export default class App extends Component {
     this.randomTrack();
   }
 
-  request() {
-    Axios.get(`https://api.soundcloud.com/tracks?client_id=${this.clientId}`)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  }
-
   handleSongPlaying(audio) {
     this.setState({
       elapsed: this.parseMilliseconds(audio.position),
@@ -52,6 +42,25 @@ export default class App extends Component {
 
   handleSongFinished() {
     this.randomTrack();
+  }
+
+  handleChange(ev, value) {
+    this.setState({autoCompleteValue: value.newValue});
+    let _this = this;
+    Axios.get(`https://api.soundcloud.com/tracks?client_id=${this.clientId}&q=${value.newValue}`)
+    .then((res) => {
+      _this.setState({tracks: res.data});
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
+  handleSelect(value, item) {
+    this.setState({
+      autoCompleteValue: value.item,
+      track: value
+    });
   }
 
   parseMilliseconds(milliseconds) {
@@ -95,7 +104,11 @@ export default class App extends Component {
           onPlaying={this.handleSongPlaying.bind(this)}
           playFromPosition={this.state.playFromPosition}
           onFinishedPlaying={this.handleSongFinished.bind(this)}/>
-        <Search />
+        <Search
+          autoCompleteValue={this.state.autoCompleteValue}
+          tracks={this.state.tracks}
+          handleSelect={this.handleSelect.bind(this)}
+          handleChange={this.handleChange.bind(this)}/>
         <Details />
         <Player />
         <Progress />
