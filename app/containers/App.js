@@ -129,7 +129,8 @@ export default class App extends Component {
           tracks={this.state.tracks}
           handleSelect={this.handleSelect.bind(this)}
           handleChange={this.handleChange.bind(this)}/>
-        <Details />
+        <Details
+          title={this.state.track.title}/>
         <Player
           togglePlay={this.togglePlay.bind(this)}
           stop={this.stop.bind(this)}
@@ -137,7 +138,9 @@ export default class App extends Component {
           backward={this.backward.bind(this)}
           random={this.randomTrack.bind(this)}
           playerStatus={this.state.playStatus}/>
-        <Progress />
+        <Progress
+          elapsed={this.state.elapsed}
+          position={this.state.position}/>
       </div>
     );
   }
